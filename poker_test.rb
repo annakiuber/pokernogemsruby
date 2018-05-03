@@ -214,4 +214,10 @@ def test_hand_comparrison_two_pair_beats_pair
 	hands = {"hand1" => hand1,"hand2" => hand2}
 	assert_equal("hand2 is the winner", handcomparison(hands))
 end
+def test_hand_comparrison__pair_beats_high_card
+	hand1 = ["2h", "2s", "3c", "7d", "Ah"]
+	hand2 = ["Th", "7c", "3h", "4c", "5h"]
+	hands = {"hand1" => hand1,"hand2" => hand2}
+	assert_equal("hand1 is the winner", handcomparison(hands))
+end
 end
