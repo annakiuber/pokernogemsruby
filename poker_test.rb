@@ -177,6 +177,35 @@ def test_for_class_handcomparison_hands
 	hand2 = ["9h", "3d", "4d", "6s", "5h"]
 	hands = {"hand1" => hand1,"hand2" => hand2}
 	assert_equal("hand1 is the winner", handcomparison(hands))
-
+end
+def test_hand_comparrison_straight
+	hand1 = ["7h", "3d", "4d", "6s", "5h"]
+	hand2 = ["9h", "3d", "4d", "6s", "5h"]
+	hands = {"hand1" => hand1,"hand2" => hand2}
+	assert_equal("hand1 is the winner", handcomparison(hands))
+end
+def test_hand_comparrison_royal_flush_beats_straight
+	hand1 = ["Qh", "Kh", "Jh", "Th", "Ah"]
+	hand2 = ["7h", "3h", "4h", "6h", "5h"]
+	hands = {"hand1" => hand1,"hand2" => hand2}
+	assert_equal("hand1 is the winner", handcomparison(hands))
+end
+def test_hand_comparrison_straight_flush_beats_three_of_kind
+	hand1 = ["2h", "2s", "2c", "Th", "Ah"]
+	hand2 = ["7h", "3h", "4h", "6h", "5h"]
+	hands = {"hand1" => hand1,"hand2" => hand2}
+	assert_equal("hand2 is the winner", handcomparison(hands))
+end
+def test_hand_comparrison_four_of_a_kind_beats_pair
+	hand1 = ["2h", "2s", "2c", "Th", "Ah"]
+	hand2 = ["7h", "7c", "4h", "6h", "5h"]
+	hands = {"hand1" => hand1,"hand2" => hand2}
+	assert_equal("hand1 is the winner", handcomparison(hands))
+end
+def test_hand_comparrison_three_o_kind_beats_pair
+	hand1 = ["2h", "2s", "2c", "7d", "Ah"]
+	hand2 = ["7h", "7c", "4h", "6h", "5h"]
+	hands = {"hand1" => hand1,"hand2" => hand2}
+	assert_equal("hand1 is the winner", handcomparison(hands))
 end
 end
