@@ -170,54 +170,78 @@ def test_for_high_card
 end
 def test_for_class_handcomparison
 	hands = {"hand1" => ["7h", "3d", "4d", "6s", "5h"],"hand2" => ["9h", "3d", "4d", "6s", "5h"]}
-	assert_equal(String, handcomparison(hands).class)
+	assert_equal(TrueClass, handcomparison(hands).class)
 end
 def test_for_class_handcomparison_hands
 	hand1 = ["7h", "3d", "4d", "6s", "5h"]
 	hand2 = ["9h", "3d", "4d", "6s", "5h"]
 	hands = {"hand1" => hand1,"hand2" => hand2}
-	assert_equal("hand1 is the winner", handcomparison(hands))
+	assert_equal(true, handcomparison(hands))
 end
 def test_hand_comparrison_straight
 	hand1 = ["7h", "3d", "4d", "6s", "5h"]
 	hand2 = ["9h", "3d", "4d", "6s", "5h"]
 	hands = {"hand1" => hand1,"hand2" => hand2}
-	assert_equal("hand1 is the winner", handcomparison(hands))
+	assert_equal(true, handcomparison(hands))
 end
 def test_hand_comparrison_royal_flush_beats_straight
 	hand1 = ["Qh", "Kh", "Jh", "Th", "Ah"]
 	hand2 = ["7h", "3h", "4h", "6h", "5h"]
 	hands = {"hand1" => hand1,"hand2" => hand2}
-	assert_equal("hand1 is the winner", handcomparison(hands))
+	assert_equal(true, handcomparison(hands))
 end
 def test_hand_comparrison_straight_flush_beats_three_of_kind
 	hand1 = ["2h", "2s", "2c", "Th", "Ah"]
 	hand2 = ["7h", "3h", "4h", "6h", "5h"]
 	hands = {"hand1" => hand1,"hand2" => hand2}
-	assert_equal("hand2 is the winner", handcomparison(hands))
+	assert_equal(false, handcomparison(hands))
 end
 def test_hand_comparrison_four_of_a_kind_beats_pair
 	hand1 = ["2h", "2s", "2c", "Th", "Ah"]
 	hand2 = ["7h", "7c", "4h", "6h", "5h"]
 	hands = {"hand1" => hand1,"hand2" => hand2}
-	assert_equal("hand1 is the winner", handcomparison(hands))
+	assert_equal(true, handcomparison(hands))
 end
 def test_hand_comparrison_three_o_kind_beats_pair
 	hand1 = ["2h", "2s", "2c", "7d", "Ah"]
 	hand2 = ["7h", "7c", "4h", "6h", "5h"]
 	hands = {"hand1" => hand1,"hand2" => hand2}
-	assert_equal("hand1 is the winner", handcomparison(hands))
+	assert_equal(true, handcomparison(hands))
 end
 def test_hand_comparrison_two_pair_beats_pair
 	hand1 = ["2h", "2s", "3c", "7d", "Ah"]
 	hand2 = ["7h", "7c", "4h", "4c", "5h"]
 	hands = {"hand1" => hand1,"hand2" => hand2}
-	assert_equal("hand2 is the winner", handcomparison(hands))
+	assert_equal(false, handcomparison(hands))
 end
 def test_hand_comparrison__pair_beats_high_card
 	hand1 = ["2h", "2s", "3c", "7d", "Ah"]
 	hand2 = ["Th", "7c", "3h", "4c", "5h"]
 	hands = {"hand1" => hand1,"hand2" => hand2}
-	assert_equal("hand1 is the winner", handcomparison(hands))
+	assert_equal(true, handcomparison(hands))
 end
+# def test_hand_comparrison__high_card_win
+# 	hand1 = ["2h", "4s", "3c", "7d", "Ah"]
+# 	hand2 = ["Th", "7c", "3h", "4c", "5h"]
+# 	hands = {"hand1" => hand1,"hand2" => hand2}
+# 	assert_equal("tie", handcomparison(hands))
+# end
+def test_comparestraight
+	assert_equal(true,comparestraight(4,3))
 end
+def test_comparestraight_false
+	assert_equal(false,comparestraight(3,4))
+end
+def test_hand_comparrison_of_two_straightflush
+	hand1 = ["2h", "3h", "4h", "5h", "6h"]
+	hand2 = ["3h", "4h", "5h", "6h", "7h"]
+	hands = {"hand1" => hand1, "hand2" => hand2}
+	assert_equal(25,handcomparison(hands))
+end
+# def test_deal_with_tie
+# 	hand1 = ["2h", "2h", "4h" "5h" "6h"]
+# 	hand2 = ["3h", "4h", "5h", "7h", "7h"]
+# 	hands = {"hand1" => hand1, "hand2" =>hand2}
+# 	assert_equal("hand2 is the winner",)
+# end
+end 
