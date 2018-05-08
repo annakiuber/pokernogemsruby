@@ -250,14 +250,17 @@ class Addition_test < Minitest::Test
 def test_look_at_tie_pair
 	hand1 = ["4s", "7d", "5c", "2h", "7s"]
 	hand2 = ["4s", "4d", "5c", "2h", "7s"]
-	hands = {"hand1" => hand1, "hand2" =>hand2}
 	assert_equal("hand1 wins", look_at_tie(hand1,hand2))
 end
 def test_llok_at_tie_three_of_a_kind
 	hand1 = ["4s", "4d", "4h", "6h", "5h"]
 	hand2 = ["3h", "7s", "5h", "7d", "7h"]
-	hands = {"hand1" => hand1, "hand2" =>hand2}
 	assert_equal("hand2 wins", look_at_tie(hand1,hand2))
 # def test_look_at_tie
+end
+def test_look_at_tie_at_four_of_a_kind
+	hand1 = ["5s", "5d", "5h", "5c", "3h"]
+	hand2 = ["2h", "7s", "7c", "7d", "7h"]
+	assert_equal("hand2 wins", look_at_tie(hand1,hand2))
 end
 end
