@@ -301,7 +301,7 @@ end
   p hand2_singledigit
  	p hand2_duplicate_strings
   p sorted_hand2
-  
+
   if hand1_singledigit > hand2_singledigit
  		result = "hand1 wins"
  	else
