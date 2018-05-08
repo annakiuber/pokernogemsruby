@@ -263,4 +263,11 @@ def test_look_at_tie_at_four_of_a_kind
 	hand2 = ["2h", "7s", "7c", "7d", "7h"]
 	assert_equal("hand2 wins", look_at_tie(hand1,hand2))
 end
+def test_look_at_tie_at_four_of_a_kind
+	hand1 = ["7h", "7d", "4h", "6h", "5h"]
+	hand2 = ["3h", "3d", "5h", "6d", "7h"]
+	hands = {"hand1" => hand1, "hand2" => hand2}
+	assert_equal("hand1 wins", handcomparison(hands))
+end
+
 end
