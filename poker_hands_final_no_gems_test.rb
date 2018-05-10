@@ -59,21 +59,21 @@ class Poker_hands_test < Minitest::Test
 	# 	hand = ["As", "Kd", "Qd", "Jd", "Td"]
 	# 	assert_nil(royal_flush(hand))
 	# end
-
-	def test_for_straight_flush_hash_class
-		hand = ["8d", "6d", "7d", "5d", "9d"]
-		assert_equal(TrueClass,straight_flush(hand).class)
-	end
-
-	def test_valid_straight_flush
-		hand = ["8d", "6d", "7d", "5d", "9d"]
-		assert_equal(true,straight_flush(hand))
-	end
-
-	def test_invalid_straight_flush
-		hand = ["2d", "6d", "7d", "5d", "9d"]
-		assert_nil(straight_flush(hand))
-	end
+  #
+	# def test_for_straight_flush_hash_class
+	# 	hand = ["8d", "6d", "7d", "5d", "9d"]
+	# 	assert_equal(TrueClass,straight_flush(hand).class)
+	# end
+  #
+	# def test_valid_straight_flush
+	# 	hand = ["8d", "6d", "7d", "5d", "9d"]
+	# 	assert_equal(true,straight_flush(hand))
+	# end
+  #
+	# def test_invalid_straight_flush
+	# 	hand = ["2d", "6d", "7d", "5d", "9d"]
+	# 	assert_nil(straight_flush(hand))
+	# end
 
 	# def test_four_of_a_kind_hash_class
 	# 	hand = ["8d", "8s", "8c", "8h", "9d"]
@@ -221,31 +221,31 @@ class Poker_hands_test < Minitest::Test
 	# 	assert_equal("starter hand2 is the winner",hand_comparison(hands))
 	# end
 
-	def test_hand_comparison_full_house_beats_a_flush
-		hand1 = ["5h", "5c", "5d", "2s", "2d"]
-		hand2 = ["6h", "3h", "8h", "9h", "4"]
-		hands = {"hand1" => hand1, "hand2" => hand2}
-		assert_equal("starter hand1 is the winner",hand_comparison(hands))
-	end
-
-	def test_hand_comparison_flush_beats_straight
-  		hand1 = ["6h", "5c", "3d", "2s", "4d"]
-  		hand2 = ["6h", "3h", "8h", "9h", "4h"]
-  		hands = {"hand1" => hand1, "hand2" => hand2}
-  		assert_equal("starter hand1 is the winner",hand_comparison(hands))
-  end
-	def test_hand_comparison_four_of_a_kind_beats_a_pair
-		hand1 = ["2h", "2s", "2c", "2d", "Ah"]
-		hand2 = ["7h", "7c", "4h", "6h", "5h"]
-		hands = {"hand1" => hand1, "hand2" => hand2}
-		assert_equal("starter hand1 is the winner",hand_comparison(hands))
-	end
-
+	# def test_hand_comparison_full_house_beats_a_flush
+	# 	hand1 = ["5h", "5c", "5d", "2s", "2d"]
+	# 	hand2 = ["6h", "3h", "8h", "9h", "4h"]
+	# 	hands = {"hand1" => hand1, "hand2" => hand2}
+	# 	assert_equal("starter hand1 is the winner",hand_comparison(hands))
+	# end
+  #
+	# def test_hand_comparison_flush_beats_straight
+  # 		hand1 = ["6h", "5c", "3d", "2s", "4d"]
+  # 		hand2 = ["6h", "3h", "8h", "9h", "4h"]
+  # 		hands = {"hand1" => hand1, "hand2" => hand2}
+  # 		assert_equal("starter hand1 is the winner",hand_comparison(hands))
+  # end
+	# def test_hand_comparison_four_of_a_kind_beats_a_pair
+	# 	hand1 = ["2h", "2s", "2c", "2d", "Ah"]
+	# 	hand2 = ["7h", "7c", "4h", "6h", "5h"]
+	# 	hands = {"hand1" => hand1, "hand2" => hand2}
+	# 	assert_equal("starter hand1 is the winner",hand_comparison(hands))
+	# end
+  #
 	# def test_hand_comparison_three_of_a_kind_beats_a_pair
 	# 	hand1 = ["2h", "2s", "2c", "7d", "Ah"]
 	# 	hand2 = ["7h", "7c", "4h", "6h", "5h"]
 	# 	hands = {"hand1" => hand1, "hand2" => hand2}
-	# 	assert_equal("hand1 is the winner",hand_comparison(hands))
+	# 	assert_equal("starter hand1 is the winner",hand_comparison(hands))
 	# end
 
 	# def test_hand_comparison_two_pair_beats_a_pair
@@ -369,5 +369,9 @@ class Poker_hands_test < Minitest::Test
 	# 	hands = {"hand1" => hand1, "hand2" => hand2}
 	#  	assert_equal("hand1 is the winner",hand_comparison(hands))
 	# end
-
+  def test_deal_with_tie_full_house_tie
+    hand1 = ["5h", "5c", "5d", "2s", "2d"]
+    hand2 = ["4h", "4c", "4d", "2s", "2d"]
+    assert_equal("hand1 is the winner",deal_with_tie(hand1,hand2))
+  end
 end
