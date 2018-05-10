@@ -83,8 +83,8 @@ def hand_comparison(hands)
       "starter hand1 is the winner"
     elsif starter_hands["hand1"] < starter_hands["hand2"]
       "starter hand2 is the winner"
-    # else starter_hands['hand1'] == starter_hands['hand2']
-    #   deal_with_tie(hands['hand1'],hands['hand2'])
+    else starter_hands['hand1'] == starter_hands['hand2']
+      deal_with_tie(hands['hand1'],hands['hand2'])
     # else starter_hands['hand1'] = starter_hands['hand2']
     #   tie_breaker(hands['hand1'],hands['hand2'])
   end
@@ -92,8 +92,6 @@ def hand_comparison(hands)
 end
 
 def deal_with_tie(hand1,hand2)
-  array1 = []
-  array2 = []
   result = ""
   face_value1 = []
   face_value2 = []
@@ -104,8 +102,7 @@ def deal_with_tie(hand1,hand2)
   royal_hand1 = face_changer(face_value1)
   matches_array1 = royal_hand1.sort
   hand1_dupes = matches_array1.select{|item| matches_array1.count(item) > 1}.uniq
-  matched_elementsum1 = hand1_dupes.sum
-  matched_element1 = matched_elementsum1[0]
+  matched_element1 = hand1_dupes.sum
 
   hand2.each do |card|
     face_value2 << card[0]
@@ -113,8 +110,8 @@ def deal_with_tie(hand1,hand2)
   royal_hand2 = face_changer(face_value2)
   matches_array2 = royal_hand2.sort
   hand2_dupes = matches_array2.select{|item| matches_array2.count(item) > 1}.uniq
-  matched_element_sum2 = hand2_dupes.sum
-  matched_element2 = matched_element_sum2[0]
+  matched_element2 = hand2_dupes.sum
+
 
 
   if matched_element1 > matched_element2
