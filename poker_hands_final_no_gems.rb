@@ -83,16 +83,17 @@ def hand_comparison(hands)
       "starter hand1 is the winner"
     elsif starter_hands["hand1"] < starter_hands["hand2"]
       "starter hand2 is the winner"
-    else starter_hands['hand1'] == starter_hands['hand2']
+    # else starter_hands['hand1'] == starter_hands['hand2']
       deal_with_tie(hands['hand1'],hands['hand2'])
-    # else starter_hands['hand1'] = starter_hands['hand2']
-    #   tie_breaker(hands['hand1'],hands['hand2'])
+    else starter_hands['hand1'] = starter_hands['hand2']
+      # tie_breaker(hands['hand1'],hands['hand2'])
   end
 
 end
 
 def deal_with_tie(hand1,hand2)
   result = ""
+  high_number = ""
   face_value1 = []
   face_value2 = []
 
@@ -101,91 +102,76 @@ def deal_with_tie(hand1,hand2)
   end
   royal_hand1 = face_changer(face_value1)
   matches_array1 = royal_hand1.sort
+  new_hand1 = matches_array1.group_by { |e| e }.select { |k, v| v.size.eql? 1 }.keys
   hand1_dupes = matches_array1.select{|item| matches_array1.count(item) > 1}.uniq
   matched_element1 = hand1_dupes.sum
+  high_num1 = new_hand1.last
+
 
   hand2.each do |card|
     face_value2 << card[0]
   end
   royal_hand2 = face_changer(face_value2)
   matches_array2 = royal_hand2.sort
+  new_hand2 = matches_array2.group_by { |e| e }.select { |k, v| v.size.eql? 1 }.keys
+  p new_hand2
   hand2_dupes = matches_array2.select{|item| matches_array2.count(item) > 1}.uniq
   matched_element2 = hand2_dupes.sum
-
-
+  high_num2 = new_hand2.last
+  p high_num2
 
   if matched_element1 > matched_element2
     result = "hand1 is the winner"
-  else matched_element1 < matched_element2
+  elsif matched_element1 < matched_element2
     result = "hand2 is the winner"
+  else matched_element1 == matched_element2
+    if high_num1 > high_num2
+      high_number = "hand1 is the winner"
+    else
+      high_number = "hand2 is the winner"
+    end
+    high_number
   end
-   result
+   # result
 end
 
 
-# def kicker_card(hand,match_card)
-#   new_hand = hand.delete(match_card)
-#   high_num = hand.last
-# end
 
-# def eval_tie(hand1,hand2)
-#   # hand1match = []
-#   # hand2match = []
-#   hand1match = deal_with_tie(hand1)
-#   hand2match = deal_with_tie(hand2)
-#   # if hand1match == hand2match
-#   #   kicker_card1 = kicker_card(hand1)
-#   #   kicker_card2 = kicker_card(hand2)
-#   #   if kicker_card1 > kicker_card2
-#   #     "hand1 is the winner"
-#   #     else kicker_card2 > kicker_card1
-#   #     "hand2 is the winner"
-#   #   end
-#   if hand1match > hand2match
-#     "hand1 is the winner"
+def tie_breaker(hand1,hand2)
+  suit_value = []
+  face_value = []
+  array_sum1 = []
+  array_sum2 = []
+  result = ""
+   "this is hand1 #{hand1}"
+  hand1.each do |card|
+     "this is each card #{card}"
+    face_value << card[0]
+    suit_value << card[1]
+  end
+    face_value = face_changer(face_value)
+    face_value.sort!
+    newarray1 = [*face_value[0]..face_value[0]+4]
+    array_sum1 = newarray1.sum
 
-#   else
-#     hand2match > hand1match
-#     "hand2 is the winner"
-#   end
-# end
-
-
-# def tie_breaker(hand1,hand2)
-#   suit_value = []
-#   face_value = []
-#   array_sum1 = []
-#   array_sum2 = []
-#   result = ""
-#    "this is hand1 #{hand1}"
-#   hand1.each do |card|
-#      "this is each card #{card}"
-#     face_value << card[0]
-#     suit_value << card[1]
-#   end
-#     face_value = face_changer(face_value)
-#     face_value.sort!
-#     newarray1 = [*face_value[0]..face_value[0]+4]
-#     array_sum1 = newarray1.sum
-
-#   suit_value = []
-#   face_value = []
-#   hand2.each do |card|
-#     face_value << card[0]
-#     suit_value << card[1]
-#   end
-#     face_value = face_changer(face_value)
-#     face_value.sort!
-#     newarray2 = [*face_value[0]..face_value[0]+4]
-#     array_sum2 = newarray2.sum
-#     p "this is array_sum1 #{array_sum1} and array_sum2 #{array_sum2}!!!!!!!!!!!"
-#     if array_sum1 > array_sum2
-#       result = "hand1"
-#     else
-#       result = "hand2"
-#     end
-#     result
-# end
+  suit_value = []
+  face_value = []
+  hand2.each do |card|
+    face_value << card[0]
+    suit_value << card[1]
+  end
+    face_value = face_changer(face_value)
+    face_value.sort!
+    newarray2 = [*face_value[0]..face_value[0]+4]
+    array_sum2 = newarray2.sum
+    p "this is array_sum1 #{array_sum1} and array_sum2 #{array_sum2}!!!!!!!!!!!"
+    if array_sum1 > array_sum2
+      result = "hand1"
+    else
+      result = "hand2"
+    end
+    result
+end
 
 def royal_flush(hand)
   suit_value = [] #give an empty array to suit_value to be able to push each index position 1 into it in conditional below
@@ -204,13 +190,12 @@ end
 
 def straight_flush(hand)
    "this is a straight_flush"
-  suit_value = []
-  face_value = []
-  hand.each do |card|
-     "this is each card #{card}"
-    face_value << card[0]
-    suit_value << card[1]
-  end
+   suit_value = []
+   face_value = []
+     hand.each do |card|
+       face_value << card[0]
+       suit_value << card[1]
+     end
     face_value = face_changer(face_value)
     face_value.sort!
     newarray = [*face_value[0]..face_value[0]+4]
@@ -256,7 +241,12 @@ def flush(hand)
 end
 
 def straight(hand)
-  face_value = cards(hand)
+  suit_value = []
+  face_value = []
+    hand.each do |card|
+      face_value << card[0]
+      suit_value << card[1]
+    end
     face_value = face_changer(face_value)
     face_value.sort!
     newarray = [*face_value[0]..face_value[0]+4]
@@ -273,12 +263,7 @@ face_value = cards(hand)
 end
 
 def two_pair(hand)
-  suit_value = []
-  face_value = []
-    hand.each do |card|
-      face_value << card[0]
-      suit_value << card[1]
-    end
+  face_value = cards(hand)
     if face_value.uniq.length == 3
       true
     end
