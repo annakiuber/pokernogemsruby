@@ -493,10 +493,7 @@ def test_hand_comparison__twopair_tie_same_face
 		hands = {"hand1" => hand1, "hand2" => hand2}
 		assert_equal("hand1 wins",hand_comparison(hands))
 end
-def test_hand_comparison__twopair_samekicker_tie_same_face
-	hand1 = ["5h", "6c", "7h", "7c", "9d"]
-		hand2 = ["5s", "5d", "7s", "7d", "9s"]
-		hands = {"hand1" => hand1, "hand2" => hand2}
-		assert_equal("hand1 wins",hand_comparison(hands))
-end
+
+# def test_handbuilder_handcomparison
+
 end

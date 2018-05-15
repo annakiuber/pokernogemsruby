@@ -285,3 +285,6 @@ def high_card(hand)
 	# face_value.sort!
 	true
 end
+hands = hand_builder
+p hands
+p hand_comparison(hands)
