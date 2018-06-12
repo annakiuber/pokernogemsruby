@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'isbn.rb'
+require_relative 'isbn2.rb'
 
 class Isbn_test < Minitest::Test
 	def test_true_is_true
@@ -87,21 +87,4 @@ class Isbn_test < Minitest::Test
 		num = "869543256x"
 		assert_equal("Result-Valid ISBN",check_sum(num))
 	end
-
-	def test_if_13
-		num = "7896532-745352"
-		assert_equal(134,multiply_places(num))
-	end
-
-	def test_13forrandom
-		num = "1456@$*6787678"
-		assert_equal("Invalid ISBN",num_length(num))
-	end
-
-	def test_13forrandom_multiplyplaces
-		num = "1456@$*6787678"
-		assert_equal("Invalid ISBN",multiply_places(num))
-	end
-
-
 end
