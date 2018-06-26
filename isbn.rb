@@ -57,6 +57,8 @@ def multiply_places(num)
 		end
 	end
 	sum = odds.sum+evens.sum
+	mod = sum%10
+	p "I am mod #{mod}"
 end
 
 def num_cap(num)
