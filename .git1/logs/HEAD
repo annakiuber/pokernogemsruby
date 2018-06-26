@@ -1,0 +1,18 @@
+0000000000000000000000000000000000000000 84d713f7896d797a97c03a12e02d14ad2ee8096a anna.kiuber <anna.kiuber@gmail.com> 1525307924 -0400	commit (initial): first commit
+84d713f7896d797a97c03a12e02d14ad2ee8096a 21b3e8d58e325b2cc5bfcb26d59d40351cfdd018 anna.kiuber <anna.kiuber@gmail.com> 1525356071 -0400	commit: push before we change our game up, all tests passing
+21b3e8d58e325b2cc5bfcb26d59d40351cfdd018 39adf7f66377040246efe56a26da41ff37e0a3c6 anna.kiuber <anna.kiuber@gmail.com> 1525357501 -0400	commit: some more tests
+39adf7f66377040246efe56a26da41ff37e0a3c6 9d4a4f881e11e9f0a3b7073630722044d4d2ec2b anna.kiuber <anna.kiuber@gmail.com> 1525357672 -0400	commit: more tests
+9d4a4f881e11e9f0a3b7073630722044d4d2ec2b 6c5bb4ea0a7ebc6e18cfbde16a63e489008d59ed anna.kiuber <anna.kiuber@gmail.com> 1525357815 -0400	commit: more tests
+6c5bb4ea0a7ebc6e18cfbde16a63e489008d59ed dfa14b22f421525a6fe8b24588220e2240bf4804 anna.kiuber <anna.kiuber@gmail.com> 1525708336 -0400	commit: ghjkghjkghj
+dfa14b22f421525a6fe8b24588220e2240bf4804 e4f38ba0a151db2acdebe0a3e9360a55d19f8836 anna.kiuber <anna.kiuber@gmail.com> 1525811346 -0400	commit: llok at tie, pair function working
+e4f38ba0a151db2acdebe0a3e9360a55d19f8836 27aa1ad1341b49b0bdfcc80b461e252633a075df anna.kiuber <anna.kiuber@gmail.com> 1525811857 -0400	commit: three of a kind and look_at_tie function working
+27aa1ad1341b49b0bdfcc80b461e252633a075df ddaa267cc51a191e33fbffd061b682dd400accca anna.kiuber <anna.kiuber@gmail.com> 1525812274 -0400	commit: llok at tie four of a kind
+ddaa267cc51a191e33fbffd061b682dd400accca 5488c0f1e982c6bbde5bc3f1b9dde39d140333a3 anna.kiuber <anna.kiuber@gmail.com> 1525812503 -0400	commit: hand comparrison working in tandom with look at tie
+5488c0f1e982c6bbde5bc3f1b9dde39d140333a3 b946b437266ee2c46b85761ff2a978edb00335ec anna.kiuber <anna.kiuber@gmail.com> 1525812776 -0400	commit: test_hand_compare_llok_at_tie_four_of_a_kind
+b946b437266ee2c46b85761ff2a978edb00335ec 52b3b4abb636628b02ac12b67cfc7e0d3c668024 anna.kiuber <anna.kiuber@gmail.com> 1525961035 -0400	commit: push for pokergame working
+52b3b4abb636628b02ac12b67cfc7e0d3c668024 b23cba0983ea823da0272837a2b6cb6c0b813339 anna.kiuber <anna.kiuber@gmail.com> 1525965092 -0400	commit: test_deal_with_tie_full_house_tie
+b23cba0983ea823da0272837a2b6cb6c0b813339 8b692dcc0c0bc92ce8d2230167ae4f89bf458d62 anna.kiuber <anna.kiuber@gmail.com> 1525965233 -0400	commit: test_deal_with_tie__two_pair_tie
+8b692dcc0c0bc92ce8d2230167ae4f89bf458d62 95d2b54b52373c42dc4f8169884e2cf99dae77c4 anna.kiuber <anna.kiuber@gmail.com> 1525967323 -0400	commit: test_handcomparrioson_royal_two_pair_tie
+95d2b54b52373c42dc4f8169884e2cf99dae77c4 0a0baa816d3c9365f4e4f9798eaa0e582bcbd024 anna.kiuber <anna.kiuber@gmail.com> 1525981061 -0400	commit: test_hand_comparison_one_pair_tie
+0a0baa816d3c9365f4e4f9798eaa0e582bcbd024 84e96c2e845829b016d3ceba5647c1ebd4f90b66 anna.kiuber <anna.kiuber@gmail.com> 1526313819 -0400	commit: almost done....
+84e96c2e845829b016d3ceba5647c1ebd4f90b66 81ffc01fecba67f5f4954798971fe30187a51afa anna.kiuber <anna.kiuber@gmail.com> 1526391964 -0400	commit: WWWWWWWWWOOOOOOOOORRRRRRRKKKKKKKKIIIIIINNNNNGGGG!
